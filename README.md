@@ -1,11 +1,11 @@
 # WebPack Kit Development
 
-Development environment in **PUG**, **STYLUS** and **ES6** in webpack
+Development environment in **PUG**, **STYLUS** and **ES6** in gulp
 
 
 ### Installation
 
-WebPack Kit Development requires [Node.js](https://nodejs.org/) v4+ to run.
+Gulp-Kit-development requires [Node.js](https://nodejs.org/) v4+ to run.
 
 Install the dependencies and devDependencies and start the server.
 

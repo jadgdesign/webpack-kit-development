@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -16,11 +17,19 @@ module.exports = {
     rules: [
       {
         test: /\.styl$/,
-        loader: [
+        use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: function () {
+                return [autoprefixer('last 2 versions', 'ie 10', 'Firefox > 10')]
+              }
+            }
+          },
           'stylus-loader'
-        ],
+        ]
       },
       {
         test: /\.js$/,
@@ -65,7 +74,7 @@ module.exports = {
             }
           },
         ],
-      },
+      }
     ]
   }
 };
