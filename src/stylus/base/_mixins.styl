@@ -1,0 +1,20 @@
+// Show Color Div
+$showDivColor()
+  background-color powderblue
+
+// Activar el efecto de transition
+$initTransition($type = all, $duration = .5s, $timing = ease-in) 
+  transition $type $duration $timing
+
+// Posicionar los elementos de manera automatica
+$posCenterAuto($position = 'Both') // Para centrar un elemento por su altura y anchura
+	if($position == 'Left')
+		left 50%
+		transform translateX(-50%)
+	if($position == 'Top')
+		top 50%
+		transform translateY(-50%)
+	if($position == 'Both')
+		left 50%
+		top 50%
+		transform translateX(-50%) translateY(-50%)
