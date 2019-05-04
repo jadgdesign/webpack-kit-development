@@ -9,7 +9,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      title: 'Webpack kit development',
+      title: 'Puzzle Game',
       template: './src/pug/index.pug'
     })
   ],
@@ -42,9 +42,10 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: '[path][name].[ext]',
               outputPath: 'img',
-              publicPath: '../img',
+              context: 'src/assets/imgs/',
+              publicPath: '../img'
             },
           },
         ],
@@ -55,8 +56,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: '[path][name].[ext]',
               outputPath: 'fonts',
+              context: 'src/assets/fonts/',
               publicPath: '../fonts',
             }
           },
@@ -70,6 +72,7 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'audios',
+              context: 'src/assets/audios/',
               publicPath: '../audios',
             }
           },
