@@ -1,3 +1,4 @@
+const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
@@ -11,14 +12,20 @@ module.exports = {
       filename: 'index.html',
       title: 'Puzzle Game',
       template: './src/pug/index.pug'
-    })
+    }),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
         test: /\.styl$/,
         use: [
           MiniCssExtractPlugin.loader,
+          // 'vue-style-loader',
           "css-loader",
           {
             loader: 'postcss-loader',

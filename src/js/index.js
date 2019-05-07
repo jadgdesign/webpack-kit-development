@@ -5,7 +5,13 @@
  // CSS
 import '../stylus/index.styl';
 
-// Rutas de todos los JS importados
-import './tools/vendor';
-import { store } from './tools/store';
+import Vue from 'vue';
+import Vuex from 'vuex';
 
+Vue.use(Vuex);
+
+import App from '../vue/index.vue';
+
+new Vue({
+  render: h => h(App)
+}).$mount('#index');
