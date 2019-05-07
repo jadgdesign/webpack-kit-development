@@ -1,0 +1,26 @@
+.modePlay
+  &-container
+    width $wMcModePlayButton
+    height auto
+    position absolute
+    left -30px
+    $posCenterAuto('Top')
+  &-button_single
+  &-button_double
+    cursor pointer
+    width $wMcModePlayButton
+    height $wMcModePlayButton
+    background-size @width @height
+    &:hover
+      $hoverButtonGen()
+  &-button_single
+    background-image url($pathImg + 'anibtn1.png')
+    margin-bottom 50px
+    &.isActive
+      pointer-events none
+      // background-image url($pathImg + 'anibtn1-active.png')
+  &-button_double
+    background-image url($pathImg + 'anibtn2.png')
+    &.isActive
+      pointer-events none
+      // background-image url($pathImg + 'anibtn2-active.png')

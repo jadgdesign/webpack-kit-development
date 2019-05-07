@@ -1,0 +1,46 @@
+.viewMode
+  &-container
+    position absolute
+    width 100%
+    height auto
+    top -40px
+  &-content
+    position relative
+    display flex
+    justify-content space-evenly
+  &-boxData
+    position relative
+    font-family 'VAGRoundedStd-Thin'
+  &-boxData_count-1,
+  &-boxData_count-2
+    color white
+    line-height $hMcViewModeContainer
+    border-radius 15px
+    box-sizing border-box
+    border 5px solid white
+    width $wMcViewModeContainer
+    height $hMcViewModeContainer
+    margin 0 auto
+    margin-bottom 10px
+    font-size 50px
+    text-align center
+    &.isActive
+      border-color yellow
+      animation-iteration-count infinite
+      animation-duration .5s
+      animation-name boxDataCount
+      @keyframes boxDataCount
+        0%, 100%
+          box-shadow 0px 0px 20px 0px yellow
+        50%
+          box-shadow 0px 0px 0 0px yellow
+  &-boxData_count-1
+    background-color #961077
+  &-boxData_count-2
+    background-color #007bc8
+  &-boxData_name
+    font-family 'VAGRoundedStd-Light'
+    font-size 30px
+    color #018ad0
+    margin 0 auto
+

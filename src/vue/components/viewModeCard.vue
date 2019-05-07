@@ -23,9 +23,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   computed: {
-    ...Vuex.mapState(['showModePlay', 'moventClickCard', 'namePlayerCard', 'pointsOnePlayerCard', 'pointsTwoPlayerCard'])
+    ...mapState(['showModePlay', 'moventClickCard', 'namePlayerCard', 'pointsOnePlayerCard', 'pointsTwoPlayerCard'])
   }
 }
 </script>

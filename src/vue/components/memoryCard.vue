@@ -1,42 +1,44 @@
 <template>
   <div class="memoryCard-container">
-    <h1>{{ msg }}</h1>
     <!-- Muestra la vista en movimiento ó punto para los jugadores --> 
-    <!-- <ViewModeCard /> -->
-    {{ numberTypeCard }}
+    <ViewModeCard />
+
     <!-- Contenedores de las cartas -->
-    <!-- <CardNumber-Eight v-if="numberTypeCard === 4 && activateCardNumber" /> -->
-    <!-- <CardNumber-Twelve v-else-if="numberTypeCard === 6 && activateCardNumber" /> -->
+    <CardNumberEight v-if="numberTypeCard === 4 && activateCardNumber" />
+    <CardNumberTwelve v-else-if="numberTypeCard === 6 && activateCardNumber" />
 
     <!-- Muestras los modos del juego -->
-    <!-- <ModePlayCard /> -->
+    <ModePlayCard />
 
     <!-- Muestras las cantidades de cartas del juego -->
-    <!-- <TypeCardNumber /> -->
+    <TypeCardNumber />
 
     <!-- Contenedor de los Botones Ayuda y Reset -->
-    <!-- <MoreButtonCard /> -->
+    <MoreButtonCard />
     </div>
 </template>
 
 <script>
-import Vuex from 'vuex'
-import store from '../../js/tools/store'
+import { mapState } from 'vuex';
 
-// import ViewModeCard from './viewModeCard.vue'
+import ViewModeCard from './viewModeCard.vue';
+import CardNumberEight from './cardNumberEight.vue'
+import CardNumberTwelve from './cardNumberTwelve.vue'
+import ModePlayCard from './modePlayCard.vue'
+import TypeCardNumber from './typeCardNumber.vue'
+import MoreButtonCard from './moreButtonCard.vue'
 
 export default {
-  store,
   components: {
-    // ViewModeCard
-  },
-  data () {
-    return {
-      msg: 'Hello world!'
-    }
+    ViewModeCard,
+    CardNumberEight,
+    CardNumberTwelve,
+    ModePlayCard,
+    TypeCardNumber,
+    MoreButtonCard
   },
   computed: {
-    ...Vuex.mapState(['numberTypeCard', 'activateCardNumber'])
+    ...mapState(['numberTypeCard', 'activateCardNumber'])
   }
 }
 </script>

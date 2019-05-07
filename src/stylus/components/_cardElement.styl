@@ -1,0 +1,96 @@
+.card
+  cursor pointer
+  width $wCardContainer
+  height $hCardContainer
+  transform-style preserve-3d
+  position relative
+  border-radius $brRadiusCard
+  $initTransition(transform, .2s, linear)
+  &:hover
+    transform translateY(-10px)
+  &.flipped
+    transform rotateY(180deg)
+  & > figure
+    position absolute
+    width $wCardContainer
+    height $hCardContainer
+    backface-visibility hidden
+    box-sizing border-box
+  &-front
+    background-image url($pathImg + 'carta1.svg')
+    background-repeat no-repeat
+    background-position 0 0
+  &-back
+    transform rotateY(180deg)
+    &_content
+      background-color white
+      background-repeat no-repeat
+      background-position center center
+      box-sizing border-box
+      border-radius $brRadiusCard
+      border $brSizeCardBack solid $brColorCardBack
+      width $wCardContainer
+      height $hCardContainer
+      position absolute
+      top 0
+      left 0
+    &_image-1
+      background-image url($pathImg + 'cartas/img1.svg')
+    &_image-2
+      background-image url($pathImg + 'cartas/img2.svg')
+    &_image-3
+      background-image url($pathImg + 'cartas/img3.svg')
+    &_image-4
+      background-image url($pathImg + 'cartas/img4.svg')
+    &_image-5
+      background-image url($pathImg + 'cartas/img5.svg')
+    &_image-6
+      background-image url($pathImg + 'cartas/img6.svg')
+    &_image-7
+      background-image url($pathImg + 'cartas/img7.svg')
+    &_image-8
+      background-image url($pathImg + 'cartas/img8.svg')
+    &_image-9
+      background-image url($pathImg + 'cartas/img9.svg')
+    &_image-10
+      background-image url($pathImg + 'cartas/img10.svg')
+  &.isDesactive
+    pointer-events none
+    // animation-timing-function ease-in
+    // animation-delay 0s !important
+    // animation-iteration-count 1 !important
+    // animation-duration .25s !important
+    // animation-name cardIsDesactive !important
+    // @keyframes cardIsDesactive
+    //   0%, 100%
+    //     transform scale(1) rotateY(180deg)
+    //   50%
+    //     transform scale(1.2) rotateY(180deg)
+  &.isAnimation
+    animation-duration 0.75s
+    animation-fill-mode backwards
+    animation-name cardAnimation
+    @keyframes cardAnimation
+      from,
+      20%,
+      40%,
+      60%,
+      80%,
+      to
+        pointer-events none
+        animation-timing-function cubic-bezier(0.215, 0.61, 0.355, 1)
+      0%
+        opacity 0
+        transform scale3d(0.3, 0.3, 0.3)
+      20%
+        transform scale3d(1.1, 1.1, 1.1)
+      40%
+        transform scale3d(0.9, 0.9, 0.9)
+      to
+        opacity 1
+        transform scale3d(1, 1, 1)
+    for num in (1..12)
+      &.isDelay-{num}
+        animation-delay $velocityCard * num
+
+ 

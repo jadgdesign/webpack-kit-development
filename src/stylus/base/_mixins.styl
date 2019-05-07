@@ -1,10 +1,28 @@
-// Show Color Div
-$showDivColor()
-  background-color powderblue
+// Para animación con sprite
+$contAnimationSprite($path, $width, $height, $size, $top, $left)
+  background-image url($pathImg + $path)
+  background-size $size $height
+  width $width
+  height $height
+  position absolute
+  if($top > 0 || $top < 0)
+    top $top
+  if($left > 0 || $top < 0)
+    left $left
 
-// Activar el efecto de transition
-$initTransition($type = all, $duration = .5s, $timing = ease-in) 
-  transition $type $duration $timing
+
+$animationSprite($name, $seconds, $count, $steps, $direction  = normal, $fillMode = none)
+  animation-name $name
+  animation-duration $seconds
+  animation-iteration-count $count
+  animation-timing-function steps($steps)
+  animation-direction $direction
+  animation-fill-mode $fillMode
+  @keyframes $name
+    from
+      background-position @background-size[0] 0px
+    to
+      background-position 0px 0px
 
 // Posicionar los elementos de manera automatica
 $posCenterAuto($position = 'Both') // Para centrar un elemento por su altura y anchura
@@ -18,3 +36,27 @@ $posCenterAuto($position = 'Both') // Para centrar un elemento por su altura y a
 		left 50%
 		top 50%
 		transform translateX(-50%) translateY(-50%)
+
+// Activar el efecto de transition
+$initTransition($type = all, $duration = .5s, $timing = ease-in) 
+  transition-timing-function: $timing
+  transition-duration: $duration
+  transition-property: $type
+
+// Show Color Div
+$showDivColor()
+  background-color powderblue
+
+// Efecto Hover para los botones en general
+$hoverButtonGen()
+  animation-duration .5s
+  animation-name buttonAnimGen
+  @keyframes buttonAnimGen
+    0%
+      transform scale(.9)
+    50%
+      transform scale(1.1)
+    75%
+      transform scale(.8)
+    100%
+      transform scale(1)
