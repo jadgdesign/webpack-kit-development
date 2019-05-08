@@ -1,17 +1,26 @@
+const path = require("path");
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'assets' : path.resolve(__dirname, './src/assets/'),
+      'stylus' : path.resolve(__dirname, './src/stylus/'),
+      'js' : path.resolve(__dirname, './src/js/')
+    }
+  },
   entry: {
-    index: './src/js/index.js'
+    index: './src/js/app.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      title: 'Puzzle Game',
-      template: './src/pug/index.pug'
+      title: 'Webpack Vue Development',
+      template: './public/app.pug'
     }),
     new VueLoaderPlugin()
   ],
@@ -22,10 +31,9 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
-        test: /\.styl$/,
+        test: /\.styl(us)?$/,
         use: [
           MiniCssExtractPlugin.loader,
-          // 'vue-style-loader',
           "css-loader",
           {
             loader: 'postcss-loader',
@@ -64,9 +72,9 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              outputPath: 'fonts',
+              outputPath: 'font',
               context: 'src/assets/fonts/',
-              publicPath: '../fonts',
+              publicPath: '../font',
             }
           },
         ],
@@ -78,9 +86,9 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'audios',
+              outputPath: 'audio',
               context: 'src/assets/audios/',
-              publicPath: '../audios',
+              publicPath: '../audio',
             }
           },
         ],

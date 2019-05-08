@@ -1,8 +1,8 @@
 {
-  "name": "memory-card-game",
+  "name": "webpack-kit-development",
   "version": "1.0.0",
   "description": "",
-  "main": "js/index.js",
+  "main": "src/js/app.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack --config webpack.dev.js",

@@ -4,16 +4,16 @@
  */
 
  // CSS
-import '../stylus/index.styl';
+import 'stylus/app.styl';
 
 // Vue
 import Vue from 'vue';
-import Index from '../vue/index.vue';
-import store from './store'
+import App from '../vue/app.vue';
+import store from './tools/store'
 
 Vue.config.productionTip = false
 
 new Vue({
   store,
-  render: h => h(Index)
-}).$mount('#index');
+  render: h => h(App)
+}).$mount('#app');
