@@ -10,7 +10,8 @@ module.exports = {
     alias: {
       'assets' : path.resolve(__dirname, './src/assets/'),
       'stylus' : path.resolve(__dirname, './src/stylus/'),
-      'js' : path.resolve(__dirname, './src/js/')
+      'js' : path.resolve(__dirname, './src/js/'),
+      'components': path.resolve(__dirname, './src/vue/components'),
     }
   },
   entry: {
