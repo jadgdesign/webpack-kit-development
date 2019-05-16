@@ -4,11 +4,11 @@
  */
 
  // CSS
-import 'stylus/app.styl';
+import 'stylus/app.styl'
 
 // Vue
-import Vue from 'vue';
-import App from '../vue/app.vue';
+import Vue from 'vue'
+import App from '../vue/app.vue'
 import store from './tools/store'
 
 Vue.config.productionTip = false
@@ -16,4 +16,4 @@ Vue.config.productionTip = false
 new Vue({
   store,
   render: h => h(App)
-}).$mount('#app');
+}).$mount('#app')

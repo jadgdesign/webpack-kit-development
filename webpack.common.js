@@ -1,8 +1,10 @@
-const path = require("path");
-const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const autoprefixer = require('autoprefixer');
+/* eslint-disable no-undef */
+// eslint-disable-next-line no-undef
+const path = require("path")
+const { VueLoaderPlugin } = require('vue-loader')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   resolve: {
@@ -11,7 +13,7 @@ module.exports = {
       'assets' : path.resolve(__dirname, './src/assets/'),
       'stylus' : path.resolve(__dirname, './src/stylus/'),
       'js' : path.resolve(__dirname, './src/js/'),
-      'components': path.resolve(__dirname, './src/vue/components'),
+      'components' : path.resolve(__dirname, './src/vue/components')
     }
   },
   entry: {
@@ -20,7 +22,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      title: 'Webpack Vue Development',
+      title: 'Buscaminas',
       template: './public/app.pug'
     }),
     new VueLoaderPlugin()
@@ -96,4 +98,4 @@ module.exports = {
       }
     ]
   }
-};
+}
